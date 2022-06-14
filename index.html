@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fresca&display=swap" rel="stylesheet"> 
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+	<title>Get Nutrition Value</title>
+
+<style>
+
+
+.form-control:focus {
+  box-shadow: none;
+ border-bottom: 5px solid green ;
+}
+
+
+
+	hr {
+  margin: 3px 0!important;
+  color: inherit;
+  border: 0;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: 0px;
+  border-top: 1px solid;
+  opacity:0.25;
+
+}
+
+/*
+@media screen and (min-width: 992px){
+
+.container, .container-lg, .container-md, .container-sm {
+  max-width: 600px;
+}
+}
+
+*/
+@media screen and (min-width: 768px){
+
+.container, .container-lg, .container-md, .container-sm {
+  max-width: 500px;
+}
+}
+
+</style>
+
+
+</head>
+<body style="background-color:#f1fad7 ; ">
+
+
+<h1 class="text-center mt-3" style="font-family: 'Fresca', sans-serif;" > Get Nutrition Value</h1>
+<div class="d-flex mt-4 justify-content-center">
+
+  <div class="col-6 "style="position: relative;
+">
+  
+
+<input type="text" name="" class="form-control o"style="width: 100%; border: none; border-bottom: 2px solid green ;font-size: 17px;outline: none;
+"id="inp"  placeholder="Enter food" >
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"style="width: 32px; position: absolute; top: 9%; right: 1%; color: #B9B9B9 ;
+ z-index:999999 ;background-color: white; border-radius: 33px;" onclick="pl()">
+  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+
+  <p style="position:absolute;" id="tr"></p>
+  <p style="position:absolute;top: 191%;" id="time"> </p>
+
+</svg>
+
+</div>
+</div>
+
+
+
+
+
+
+<h3 id="nam" class="text-center mt-3" style="font-family: 'Fresca', sans-serif;" ></h3>
+<div class="container mt-3" style="border: 0.7px solid grey;height: 100% width:322px !important; display: none;background-color: white" id="box">
+	
+
+<h1> Nutrition Facts </h1>
+
+<div  class=" d-flex justify-content-between">
+<h3 style="font-size: 19px;font-weight: 400;">Serving</h3>
+
+<h5 style="" id="serv">00</h5>
+
+</div>
+<hr>
+
+<div  class=" d-flex justify-content-between">
+<h3 style="font-size: 29px;font-weight: 500;">Calories</h3>
+
+<h5 style="" id="call">00</h5>
+
+</div>
+<div style="border: 0.3px solid grey;"></div>
+<div  class=" d-flex justify-content-between">
+<h3 style="font-size: 19px;font-weight: 600;">Total Fat</h3>
+
+<h5 style="" id="fat">00</h5>
+
+</div>
+
+<hr>
+
+<div  class=" d-flex justify-content-between">
+<h5 style="font-weight: 400">Saturated Fat</h5>
+
+<h5 style="" id="satfatt">00</h5>
+
+</div>
+<hr>
+<div  class=" d-flex justify-content-between">
+<h3 style="font-size: 19px;font-weight: 600;">Cholesterol</h3>
+
+<h5 style="" id="choll">00</h5>
+
+</div>
+
+<hr>
+<div  class=" d-flex justify-content-between">
+<h3 style="font-size: 19px;font-weight: 600;">Sodium</h3>
+
+<h5 style=""  id="sodd">00</h5>
+
+</div>
+<hr>
+<div  class=" d-flex justify-content-between">
+<h3 style="font-size: 19px;font-weight: 600;">Total Carbohydrate</h3>
+
+<h5 style="" id="toacarbb">00</h5>
+
+</div>
+
+<hr>
+
+
+<div  class=" d-flex justify-content-between">
+<h5 style="font-weight: 400">Dietry Fibre</h5>
+
+<h5 style="" id="difib">00</h5>
+
+</div>
+<hr>
+<div  class=" d-flex justify-content-between">
+<h5 style="font-weight: 400">Total Sugars</h5>
+
+<h5 style="" id="toatsugar">00</h5>
+
+</div>
+
+<hr>
+
+
+<div  class=" d-flex justify-content-between">
+<h3 style="font-size: 19px;font-weight: 600;">Protien</h3>
+
+<h5 style="" id="proo">00</h5>
+
+</div>
+
+
+
+<hr>
+
+<div  class=" d-flex justify-content-between">
+<h5 style="font-weight: 400">Potassium</h5>
+
+<h5 style="" id="potta" >00</h5>
+
+</div>
+
+
+</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+let call=document.getElementById('call');
+
+let fat=document.getElementById('fat');
+
+
+let satfatt=document.getElementById('satfatt');
+
+
+let choll=document.getElementById('choll');
+
+
+let sodd=document.getElementById('sodd');
+
+
+let toacarbb=document.getElementById('toacarbb');
+
+
+let difib=document.getElementById('difib');
+
+
+let toatsugar=document.getElementById('toatsugar');
+
+let proo=document.getElementById('proo');
+
+
+let potta=document.getElementById('potta');
+
+let serv=document.getElementById('serv');
+
+let box=document.getElementById('box');
+//let inp=document.getElementById('inp').value;
+
+//setTimeout(sho, 8000);
+let nam=document.getElementById('nam');
+
+let p;
+let inp=document.getElementById('inp');
+inp.addEventListener("change",()=>{
+p=inp.value;
+console.log(p)
+
+})
+
+const pl=()=>{
+
+
+
+
+nam.innerHTML=p
+
+setTimeout(() => {
+ 
+  box.style.display="revert";
+
+}, 2000); 
+
+
+
+
+
+//var query = '2 egg and apple'
+$.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/nutrition?query=' +p,
+    headers: { 'X-Api-Key': 'lXBSHIGftyBEMIBoaZxJyw==YyVhlRxqBMpqi573'},
+    contentType: 'application/json',
+    success: function(result) {
+    	//var
+let cal=0;let carb=0;let chol=0;let fat_s=0;let fat_to=0;let fibe=0;let potas=0;let prot=0;let sodiu=0;let sug=0;let se=0
+        //var
+    	for(let i=0;i<result.length;i++){
+    		cal+=result[i].calories;
+
+se+=result[i].serving_size_g;
+
+
+    		carb+=result[i].carbohydrates_total_g;	
+chol+=result[i].cholesterol_mg;
+
+fat_s+=result[i].fat_saturated_g;
+
+fat_to+=result[i].fat_total_g;
+
+
+fibe+=result[i].fiber_g;
+
+potas+=result[i].potassium_mg;
+
+
+
+prot+=result[i].protein_g;
+
+sodiu+=result[i].sodium_mg;
+
+
+sug+=result[i].sugar_g;
+
+console.log(result[i].name,"ppp")
+console.log(result[i].calories,"calories")
+    	}
+
+//joiningdata
+call.innerText=cal;
+fat.innerText=Math.ceil(fat_to)+" g"
+satfatt.innerText=fat_s+" g"
+choll.innerText=chol+" mg"
+sodd.innerText=sodiu+" mg"
+toacarbb.innerText=Math.ceil(carb)+" g"
+difib.innerText=fibe+" g"
+toatsugar.innerText=Math.ceil(sug)+" g"
+proo.innerText=prot+" g"
+potta.innerText=potas+" mg"
+serv.innerText=se+" g";
+//joiningdata
+
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
+    }
+});
+}
+
+
+
+const m=()=>{
+
+	location.reload()
+}
+
+let n=()=>{
+fetch('https://api.api-ninjas.com/v1/nutrition?query=banana', {
+    
+    headers: {
+      'x-api-key': 'lXBSHIGftyBEMIBoaZxJyw==YyVhlRxqBMpqi573',
+     
+    },
+  })
+  .then(response => response.json())
+  .catch(error => console.log('Error while fetching:', error))
+
+
+}
+
+
+</script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</body>
+</html>
