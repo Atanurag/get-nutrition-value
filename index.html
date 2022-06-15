@@ -232,9 +232,11 @@ p=inp.value;
 })
 
 const pl=()=>{
+if(p==""){
+alert("Empty field not include");	
+}
 
-
-
+else{
 
 nam.innerHTML=p
 
@@ -308,6 +310,7 @@ serv.innerText=se+" g";
         console.error('Error: ', jqXHR.responseText);
     }
 });
+}
 }
 
 
