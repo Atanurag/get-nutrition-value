@@ -304,6 +304,7 @@ serv.innerText=se+" g";
 
     },
     error: function ajaxError(jqXHR) {
+	    alert("Unknown name ¯\_( ͡° ͜ʖ ͡°)_/¯");
         console.error('Error: ', jqXHR.responseText);
     }
 });
@@ -315,21 +316,6 @@ const m=()=>{
 
 	location.reload()
 }
-
-let n=()=>{
-fetch('https://api.api-ninjas.com/v1/nutrition?query=banana', {
-    
-    headers: {
-      'x-api-key': 'lXBSHIGftyBEMIBoaZxJyw==YyVhlRxqBMpqi573',
-     
-    },
-  })
-  .then(response => response.json())
-  .catch(error => console.log('Error while fetching:', error))
-
-
-}
-
 
 </script>
 <!-- JavaScript Bundle with Popper -->
