@@ -235,8 +235,8 @@ p=inp.value;
 })
 
 const pl=()=>{
-if(p==""){
-alert("Empty field not include");	
+if(p===undefined){
+alert("Empty field not included");	
 }
 
 else{
@@ -254,12 +254,15 @@ setTimeout(() => {
 
 
 //var query = '2 egg and apple'
+  
 $.ajax({
     method: 'GET',
     url: 'https://api.api-ninjas.com/v1/nutrition?query=' +p,
     headers: { 'X-Api-Key': 'lXBSHIGftyBEMIBoaZxJyw==YyVhlRxqBMpqi573'},
     contentType: 'application/json',
     success: function(result) {
+     
+      
     	//var
 let cal=0;let carb=0;let chol=0;let fat_s=0;let fat_to=0;let fibe=0;let potas=0;let prot=0;let sodiu=0;let sug=0;let se=0
         //var
